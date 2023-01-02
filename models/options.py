@@ -27,7 +27,7 @@ class Options:
 
     def set_path(self, path: str or None):
         if path is not None:
-            self.path = Path(path)
+            self.path = Path(path).expanduser()
             if not self.path.is_dir():
                 raise FileExistsError(f'Path {self.path} is not a valid directory.')
 
